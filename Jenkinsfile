@@ -7,9 +7,6 @@ pipeline {
     stages{
        
         stage('BUILD'){
-            when {
-                branch 'release/*'
-            }
             steps{
                 echo "BUILDING THE IMAGE... "
                 
@@ -20,9 +17,6 @@ pipeline {
         }
         
         stage('TAG'){
-            when {
-                branch 'release/*'
-            }
             steps{
                 echo "TAGGING GIT REPO..."
                 
@@ -34,9 +28,6 @@ pipeline {
             }
         }
         stage('PUSH'){
-            when {
-                branch 'release/*'
-            }
             steps{
                 echo "PUSHING THE IMAGE TO REPO ..."
                 sh """
